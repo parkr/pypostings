@@ -1,6 +1,6 @@
 # pypostings
 
-A Python library for generating postings and posting lists for use in NLP and other Information 
+A Python library for generating postings and posting lists. 
 
 ## Usage
 
