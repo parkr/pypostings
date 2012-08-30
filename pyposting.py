@@ -33,7 +33,7 @@ def posting_list(corpus):
 
 def tokenize(corpus):
     assert type(corpus) is str, 'Corpus must be a string of characters.'
-    tokenized = filter(not_string, re.split(r'(\s)', corpus))
+    tokenized = corpus.split()
     return tokenized
 
 def not_string(a):
