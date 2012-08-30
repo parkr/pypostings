@@ -5,9 +5,6 @@ def posting(corpus):
     
     tokens = tokenize(corpus)
     for index, token in enumerate(tokens):
-        # normalize token
-        #   strip punctuation
-        token = re.sub('\W\Z', '', token)
         posting.append([token, (index+1)])
 
     return posting
@@ -17,10 +14,6 @@ def posting_list(corpus):
     
     tokens = tokenize(corpus)
     for index, token in enumerate(tokens):
-        # normalize token
-        #   strip punctuation
-        token = re.sub('\W\Z', '', token)
-        token = re.sub('\A\W', '', token)
         if token not in posting_list:
             posting_list[token] = [(index + 1)]
         else:
@@ -35,7 +28,10 @@ def tokenize(corpus):
     assert type(corpus) is str, 'Corpus must be a string of characters.'
     # split
     tokenized = corpus.split()
-    # TODO: normalize
+    # normalize
+    for index, token in enumerate(tokenized):
+        tokenized[index] = re.sub('\W\Z', '', tokenized[index])
+        tokenized[index] = re.sub('\A\W', '', tokenized[index])
     return tokenized
 
 def not_string(a):
