@@ -33,7 +33,9 @@ def posting_list(corpus):
 
 def tokenize(corpus):
     assert type(corpus) is str, 'Corpus must be a string of characters.'
+    # split
     tokenized = corpus.split()
+    # TODO: normalize
     return tokenized
 
 def not_string(a):
